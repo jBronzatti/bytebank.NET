@@ -1,5 +1,7 @@
 ﻿using bytebank.Contas;
+using bytebank.Funcionarios;
 using bytebank.Titular;
+using bytebank.Utilitario;
 
 //ContaCorrente contadoandre = new ContaCorrente();
 //contadoandre.titular = "André silva";
@@ -79,9 +81,31 @@ using bytebank.Titular;
 //Console.WriteLine(conta4.GetSaldo());
 //Console.WriteLine(conta4.Numero_agencia);
 
-ContaCorrente conta5 = new ContaCorrente(283, "1234-X");
-Console.WriteLine(ContaCorrente.TotalDeContasCriadas);
-ContaCorrente conta6 = new ContaCorrente(284, "9874-Z");
-Console.WriteLine(ContaCorrente.TotalDeContasCriadas);
-ContaCorrente conta7 = new ContaCorrente(284, "9874-Z");
-Console.WriteLine(ContaCorrente.TotalDeContasCriadas);
+//ContaCorrente conta5 = new ContaCorrente(283, "1234-X");
+//Console.WriteLine(ContaCorrente.TotalDeContasCriadas);
+//ContaCorrente conta6 = new ContaCorrente(284, "9874-Z");
+//Console.WriteLine(ContaCorrente.TotalDeContasCriadas);
+//ContaCorrente conta7 = new ContaCorrente(284, "9874-Z");
+//Console.WriteLine(ContaCorrente.TotalDeContasCriadas);
+
+Funcionario pedro = new Funcionario();
+pedro.Nome = "Pedro malazartes";
+pedro.Cpf = "123456789";
+pedro.Salario = 5000;
+
+Console.WriteLine(pedro.Nome);
+Console.WriteLine(pedro.GetBonificacao());
+
+Diretor roberta = new Diretor();
+roberta.Nome = "Roberta Silva";
+roberta.Cpf = "987654321";
+roberta.Salario = 100000;
+
+Console.WriteLine(roberta.Nome);
+Console.WriteLine(roberta.GetBonificacao());
+
+GerenciadorDeBonificacao gerenciador = new GerenciadorDeBonificacao();
+gerenciador.Registrar(pedro);
+gerenciador.Registrar(roberta);
+
+Console.WriteLine($"Total de bonificações: {gerenciador.TotalDeBonificacao}");
